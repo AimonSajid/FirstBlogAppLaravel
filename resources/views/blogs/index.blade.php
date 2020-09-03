@@ -1,17 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div class="jumbotron">
 
 <div class="row">
 
 
 @foreach($blogs as $blog)
-<div class="col-md-6">
+
+<div class="col-md-4">
 
 	<div class="card">
-		<div class="card-header">
-	  <a href="{{ route('blog_path', ['id' => $blog->id ]) }}">{{ $blog->title }}</a>
+		<div class="card-header text-white bg-primary">
+	  <a href="{{ route('blog_path', ['id' => $blog->id ]) }}" style="color: white;">{{ $blog->title }}</a>
 
 	</div>
 	<div class="card-body">
@@ -31,8 +32,10 @@
 
 	</div>
 
+
 @endforeach
 
+</div>
 </div>
 
 
