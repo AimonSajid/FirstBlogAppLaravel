@@ -36,9 +36,9 @@
 		<label for="content">Content</label>
 		<textarea name="content" id="editor" class="form-control" rows="20">{{ $blog->content }}</textarea>
 	</div>
-	<div class="form-group">
+	<!-- <div class="form-group">
 		<input type="file" name="images" class="form-control-file" >
-	</div>
+	</div> -->
 
 	<div class="form-group">
 		<input type="submit" class="btn btn-primary float-right mb-3" value="Edit Blog Post">
