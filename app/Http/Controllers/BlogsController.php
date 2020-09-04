@@ -52,14 +52,37 @@ class BlogsController extends Controller
     	return view('blogs.create');
     }
 
+    
+
     public function store(Request $request){
+
+        function is_image($path)
+    {
+
+        $extension = pathinfo($path, PATHINFO_EXTENSION);
+    //$a = $path['extension'];
+    $image_type = $extension;
+    
+    if(in_array($image_type , array('gif' , 'jpeg' ,'jpg' , 'bmp', 'png')))
+    {
+        return true;
+    }
+    return false;
+    }
 
     	$blog = new Blog;
     	$blog->title = $request->title;
+        if($request->content == ''){
+             return view('blogs.create',['msg' => "Please add some content to your blog"]);
+        }
     	$blog->content = $request->content;
 
     	$path = Storage::putFile('public', $request->file('images'));
+
     	$url = Storage::url($path); 
+        if(!is_image($url)){
+            return view('blogs.create',['msg' => 'Invalid file type!']);
+        }
     	$blog->image = $url;
 
     	$blog->save();

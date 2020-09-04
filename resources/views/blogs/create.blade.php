@@ -10,10 +10,32 @@
 <script>
   tinymce.init({
     selector: 'textarea#editor',
-    menubar: false
+    menubar: false,
+    // setup: function (editor) {
+    //   editor.on('change', function () {
+    //       tinymce.triggerSave();
+    //   });
+  }
+  });
+  $(document).ready(function(){
+ //  	$("form").on("submit", function(e){
+ //   //Code: Action (like ajax...)
+ //     if($("body#tinymce p").html() != '<br>'){
+ //     	e.preventDefault();
+ //     	//alert("Please add some content to your blog")
+ //     	//alert($("body#tinymce p").html());
+ //     }
+ // });
   });
 </script>
+@isset($msg)
 
+<div class="alert alert-dismissible alert-danger">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>{{$msg}}</strong>
+</div>
+
+@endisset
 
 <div class="jumbotron">
 	<div class="row">
@@ -33,7 +55,7 @@
 
 	<div class="form-group">
 		<label for="content">Content</label>
-		<textarea name="content" class="form-control" rows="20" id="editor" required></textarea>
+		<textarea name="content" class="form-control" rows="20" id="editor" ></textarea>
 		
 	</div>
 
